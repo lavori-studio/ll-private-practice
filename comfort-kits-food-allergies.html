@@ -315,9 +315,31 @@
     .cta-item-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--light-text); display: block; margin-bottom: 2px; }
     .cta-item-value { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--charcoal); display: block; white-space: nowrap; }
 
+    /* ── INQUIRY BANNER ── */
+    .inquiry-banner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      width: 100%;
+      padding: 14px 32px;
+      background: var(--teal-dark);
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.92);
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .inquiry-banner:hover { background: #218f8a; }
+    .inquiry-banner svg { width: 14px; height: 14px; fill: rgba(255,255,255,0.85); flex-shrink: 0; }
+    .inquiry-arrow { font-size: 0.9rem; opacity: 0.6; }
+
     /* ── MOBILE ── */
     @media (max-width: 600px) {
       .hero { padding: 32px 20px 28px; }
+      .inquiry-banner { font-size: 0.8rem; padding: 11px 20px; }
       .container { padding: 0 20px; }
       .partnership-badge { font-size: 0.72rem; padding: 6px 12px; white-space: normal; text-align: center; justify-content: center; }
       .intro-section { padding: 28px 0 24px; }
@@ -360,6 +382,13 @@
     <span class="hero-byline">A clinical program by Lisa Lombard, PhD</span>
   </div>
 </header>
+
+<!-- INQUIRY BANNER -->
+<a href="mailto:lisalombardphd@gmail.com?subject=Comfort%20Kits%20for%20Food%20Allergies%20Inquiry" class="inquiry-banner">
+  <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+  Contact me about fees or to schedule
+  <span class="inquiry-arrow">→</span>
+</a>
 
 <!-- INTRO -->
 <div class="container">
@@ -509,19 +538,19 @@
 <!-- CTA -->
 <section class="cta-section fade-in">
   <h2>Ready to support your child?</h2>
-  <p>Schedule an appointment with Dr. Lombard to discuss whether Comfort Kits for Food Allergies is a good fit for your family.</p>
+  <p>Reach out to discuss whether Comfort Kits for Food Allergies is a good fit for your family.</p>
   <p class="cta-partnership">
     This program is offered through Dr. Lombard's private practice, in partnership with
     <a href="https://www.comfortkitsforchildren.org" target="_blank">Comfort Kits for Children®</a>.
   </p>
   <div class="cta-contacts">
-    <a href="https://www.lisalombardphd.com/contact" class="cta-item">
+    <a href="mailto:lisalombardphd@gmail.com" class="cta-item">
       <div class="cta-item-icon">
-        <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
       </div>
       <div>
-        <span class="cta-item-label">Schedule</span>
-        <span class="cta-item-value">Request an Appointment</span>
+        <span class="cta-item-label">Email</span>
+        <span class="cta-item-value">lisalombardphd@gmail.com</span>
       </div>
     </a>
     <a href="tel:7086550063" class="cta-item">
