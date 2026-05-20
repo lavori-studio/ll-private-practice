@@ -336,8 +336,25 @@
     .inquiry-banner svg { width: 14px; height: 14px; fill: rgba(255,255,255,0.85); flex-shrink: 0; }
     .inquiry-arrow { font-size: 0.9rem; opacity: 0.6; }
 
+    /* ── CREDENTIAL BLOCK ── */
+    .credential-block { padding: 56px 0; }
+    .credential-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: center; }
+    .credential-photo { position: relative; }
+    .credential-photo img { width: 100%; height: 400px; object-fit: cover; object-position: center 10%; border-radius: 12px; display: block; }
+    .credential-photo-placeholder { width: 100%; height: 400px; background: var(--blue-light); border: 1px dashed var(--sage-light); border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--sage-dark); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; }
+    .credential-photo-placeholder svg { width: 28px; height: 28px; }
+    .credential-content .section-label { color: var(--teal-dark); }
+    .credential-content h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 400; color: var(--charcoal); margin-bottom: 16px; line-height: 1.25; }
+    .credential-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+    .credential-list li { display: flex; gap: 14px; align-items: flex-start; font-size: 0.9rem; color: var(--mid); line-height: 1.65; }
+    .credential-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); flex-shrink: 0; margin-top: 0.55em; }
+    .credential-list strong { color: var(--charcoal); font-weight: 400; display: block; margin-bottom: 1px; }
+
     /* ── MOBILE ── */
     @media (max-width: 600px) {
+      .credential-block { padding: 32px 0; }
+      .credential-inner { grid-template-columns: 1fr; gap: 24px; }
+      .credential-photo img, .credential-photo-placeholder { height: 280px; }
       .hero { padding: 32px 20px 28px; }
       .inquiry-banner { font-size: 0.8rem; padding: 11px 20px; }
       .container { padding: 0 20px; }
@@ -404,6 +421,38 @@
       <p class="section-desc">The emotional impact can take many forms: worry and anxiety, fear, hypervigilance that alters routines, and sadness or frustration that can diminish overall well-being. Sometimes these reactions are temporary and manageable. But they can also become persistent, interfere with daily functioning, and impact healthy development.</p>
       <p class="section-desc">Children's thoughts, emotions, and physical responses are closely linked. Anxiety can heighten physical sensations, and physical symptoms can, in turn, amplify worry. Helping children understand and work with this connection allows them to feel more in control of their bodies and their experiences.</p>
       <p class="section-desc">Families managing food allergies must navigate cultural and social experiences, particularly around food-centered gatherings and traditions. My approach helps families strengthen stress management skills, build cognitive flexibility, and foster a sense of connection and belonging — so that children don't just get through, but truly thrive.</p>
+    </div>
+  </div>
+</div>
+
+<!-- CREDENTIAL BLOCK -->
+<div class="container">
+  <div class="credential-block fade-in">
+    <div class="credential-inner">
+      <div class="credential-photo">
+        <img src="images/Lisa_cfaar.jpg"
+             alt="Dr. Lisa Lombard at the Center for Food Allergy &amp; Asthma Research conference"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+        <div class="credential-photo-placeholder" style="display:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>images/Lisa_cfaar.jpg</span>
+        </div>
+      </div>
+      <div class="credential-content">
+        <span class="section-label">About Dr. Lombard</span>
+        <h2>A Research-Informed Approach to Food Allergy Care</h2>
+        <ul class="credential-list">
+          <li>
+            <div><strong>Former Research Assistant Professor &amp; Faculty, Center for Food Allergy &amp; Asthma Research (CFAAR)</strong>Northwestern University Feinberg School of Medicine — studying the psychosocial impacts of food allergy and developing self-directed coping tools.</div>
+          </li>
+          <li>
+            <div><strong>Published Researcher</strong>Author of peer-reviewed studies and book chapters on food allergy, medical trauma, and psychosocial burden, particularly among children.</div>
+          </li>
+          <li>
+            <div><strong>Expert in Pediatric Clinical Hypnosis</strong>Holding the highest credential offered by the <a href="https://www.asch.net" target="_blank" style="color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-light);">American Society of Clinical Hypnosis</a>, and faculty and current president of the <a href="https://www.nphti.org" target="_blank" style="color:var(--teal-dark);text-decoration:none;border-bottom:1px solid var(--teal-light);">National Pediatric Hypnosis Training Institute</a>.</div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
