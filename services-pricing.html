@@ -190,16 +190,16 @@
   <div class="tabs-wrapper">
 
     <nav class="tab-nav" role="tablist">
-      <button class="tab-btn active" role="tab" aria-selected="true"  data-tab="therapy">Individual Therapy</button>
-      <button class="tab-btn"        role="tab" aria-selected="false" data-tab="specialties">Specialties</button>
-      <button class="tab-btn"        role="tab" aria-selected="false" data-tab="fees">Fees &amp; Forms</button>
+      <button id="tab-btn-therapy"     class="tab-btn active" role="tab" aria-selected="true"  aria-controls="tab-therapy"     data-tab="therapy"     tabindex="0">Individual Therapy</button>
+      <button id="tab-btn-specialties" class="tab-btn"        role="tab" aria-selected="false" aria-controls="tab-specialties" data-tab="specialties" tabindex="-1">Specialties</button>
+      <button id="tab-btn-fees"        class="tab-btn"        role="tab" aria-selected="false" aria-controls="tab-fees"        data-tab="fees"        tabindex="-1">Fees &amp; Forms</button>
     </nav>
 
 
     <!-- ═══════════════════════════════════════
          TAB 1 — Individual Therapy
     ════════════════════════════════════════ -->
-    <div class="tab-panel active" id="tab-therapy">
+    <div class="tab-panel active" id="tab-therapy" role="tabpanel" aria-labelledby="tab-btn-therapy">
 
       <div class="section">
         <p class="section-label">Adults</p>
@@ -256,7 +256,7 @@
     <!-- ═══════════════════════════════════════
          TAB 2 — Specialties
     ════════════════════════════════════════ -->
-    <div class="tab-panel" id="tab-specialties">
+    <div class="tab-panel" id="tab-specialties" role="tabpanel" aria-labelledby="tab-btn-specialties">
 
       <div class="specialty-block">
         <p class="block-label">Performance</p>
@@ -327,7 +327,7 @@
     <!-- ═══════════════════════════════════════
          TAB 3 — Fees
     ════════════════════════════════════════ -->
-    <div class="tab-panel" id="tab-fees">
+    <div class="tab-panel" id="tab-fees" role="tabpanel" aria-labelledby="tab-btn-fees">
 
       <div class="section">
         <p class="section-label">Individual Services</p>
@@ -448,17 +448,42 @@
 
 <script>
   // ── Tab switching ──
-  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabBtns = Array.from(document.querySelectorAll('.tab-btn'));
   const tabPanels = document.querySelectorAll('.tab-panel');
 
+  function activateTab(btn, focus) {
+    tabBtns.forEach(b => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+      b.setAttribute('tabindex', '-1');
+    });
+    tabPanels.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+    btn.setAttribute('tabindex', '0');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    if (focus) btn.focus();
+    sendHeight();
+  }
+
   tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
-      tabPanels.forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-      sendHeight();
+    btn.addEventListener('click', () => activateTab(btn, false));
+
+    btn.addEventListener('keydown', (e) => {
+      let index = tabBtns.indexOf(btn);
+      if (e.key === 'ArrowRight') {
+        index = (index + 1) % tabBtns.length;
+      } else if (e.key === 'ArrowLeft') {
+        index = (index - 1 + tabBtns.length) % tabBtns.length;
+      } else if (e.key === 'Home') {
+        index = 0;
+      } else if (e.key === 'End') {
+        index = tabBtns.length - 1;
+      } else {
+        return;
+      }
+      e.preventDefault();
+      activateTab(tabBtns[index], true);
     });
   });
 
